@@ -1,6 +1,6 @@
 # GCP 云管与 FinOps 账单飞书机器人 — 使用说明手册
 
-本手册介绍如何使用全新的 **云管与账单飞书机器人** 管理三大核心领域：**MSA 服务公告（`msa/`）**、**Project & Org 双层配额监控（`quota/`）** 与 **BigQuery Export 账单异常分析（`billing/`）**。
+本手册介绍如何使用全新的 **云管与账单飞书机器人**（基于 **Google ADK + `gemini-4-hydrogen`** 构建）管理三大核心领域：**MSA 服务公告（`msa/`）**、**Project & Org 双层配额监控（`quota/`）** 与 **BigQuery Export 账单异常分析（`billing/`）**。
 
 ---
 

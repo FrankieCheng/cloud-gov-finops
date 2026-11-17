@@ -1,6 +1,6 @@
 # GCP 云管与 FinOps 账单飞书机器人 — 部署指南
 
-本文档说明如何配置并部署独立的 **云管与账单异常监控服务 (`cloud-gov-finops-agent`)** 及对应的新飞书机器人。
+本文档说明如何配置并部署独立的 **云管与账单异常监控服务 (`cloud-gov-finops-agent`)** 及对应的新飞书机器人（默认搭载 Vertex AI 最新 Gemini 4 系列高速智能体模型 **`gemini-4-hydrogen`**，端点区域固定为 `GOOGLE_CLOUD_LOCATION=global`，亦可按需通过 `GOV_AGENT_MODEL` 切换为 `gemini-4-argon` 或 `gemini-4-carbon`）。
 
 ---
 
@@ -118,6 +118,7 @@ cd ~/cloud-gov-finops
 # 默认每日北京时间 09:00 自动执行全量云管 (MSA + Quota) 与账单异常巡检并推送飞书卡片
 PROJECT=demo-core-prod \
 REGION=us-central1 \
+GOV_AGENT_MODEL=gemini-4-hydrogen \
 GOV_ORG_ID=123456789012 \
 PATROL_DAILY_HOUR=9 \
 BILLING_EXPORT_TABLES="demo-core-prod.billing.gcp_billing_export_resource_v1_01ABCD_EF0123_456789" \

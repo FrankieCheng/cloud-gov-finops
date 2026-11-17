@@ -1,6 +1,6 @@
 # Cloud Governance & FinOps Agent（GCP 云管与账单异常监控平台）
 
-面向企业云管（CMP）与财务运营（FinOps）团队的独立智能治理工程，采用 **三大核心业务域目录（`msa/`、`quota/`、`billing/`）+ 专用新飞书机器人（`bot/`）** 架构，基于 **Google ADK (`gemini-2.5-flash`)** 实现服务变更生命周期纳管、项目与组织双层配额监控、以及 BigQuery Billing Export 每日账单异常下钻推送。
+面向企业云管（CMP）与财务运营（FinOps）团队的独立智能治理工程，采用 **三大核心业务域目录（`msa/`、`quota/`、`billing/`）+ 专用新飞书机器人（`bot/`）** 架构，基于 **Google ADK (`gemini-4-hydrogen`)** 实现服务变更生命周期纳管、项目与组织双层配额监控、以及 BigQuery Billing Export 每日账单异常下钻推送。
 
 > **与工单系统关系**：本工程（`~/cloud-gov-finops`）与工单助手（`cloud-case-manage`）完全独立解耦，通过**新的专用飞书机器人**（`FEISHU_GOV_APP_ID` / `FEISHU_GOV_APP_SECRET`）与独立 Cloud Run 服务（`cloud-gov-finops-agent`）运行。
 
@@ -33,7 +33,7 @@ cloud-gov-finops/
 │   ├── config.py               # 多级配置、SQL 表名/日期正则白名单校验与 GCP 鉴权
 │   ├── cache.py                # 线程安全 TTL 缓存层 (消除多工具重复跨项目 API 扫描，响应提速 >50%)
 │   ├── state_sync.py           # 本地原子快照 + 可选 GCS 持久化同步 (防止无状态容器重启丢失人工闭环与静默记录)
-│   ├── agent.py                # Google ADK 主智能体 (gemini-2.5-flash)、14 项专业治理工具与 0-100 五维健康分引擎
+│   ├── agent.py                # Google ADK 主智能体 (gemini-4-hydrogen)、14 项专业治理工具与 0-100 五维健康分引擎
 │   ├── feishu_bot.py           # 飞书长连接机器人 (支持按钮点击原地 PATCH 卡片、群聊上下文智能路由与上传 .tsv/.csv 导入)
 │   ├── scheduler.py            # 每日北京时间 09:00 全景自动巡检与签名 Webhook 推送器
 │   └── server.py               # 安全加固的 FastAPI 服务网关 (含 TSV 导出、架构分析与静默接口)

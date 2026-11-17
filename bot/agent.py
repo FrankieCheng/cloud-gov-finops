@@ -1,7 +1,7 @@
 # Copyright 2026 Google LLC
 # SPDX-License-Identifier: Apache-2.0
 
-"""Google ADK Cloud Governance & FinOps Agent (`gemini-2.5-flash`) unifying msa/, quota/, and billing/."""
+"""Google ADK Cloud Governance & FinOps Agent (`gemini-4-hydrogen`) unifying msa/, quota/, and billing/."""
 
 from __future__ import annotations
 
@@ -28,7 +28,7 @@ from quota.service import build_quota_feishu_card, get_quota_service
 
 logger = logging.getLogger(__name__)
 
-MODEL = os.getenv("GOV_AGENT_MODEL", "gemini-2.5-flash")
+MODEL = os.getenv("GOV_AGENT_MODEL", "gemini-4-hydrogen")
 
 
 def compute_executive_health_report(monthly_budget_usd: float = 0.0) -> dict[str, Any]:
